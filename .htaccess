@@ -1,0 +1,8 @@
+#RewriteEngine On
+#Options +FollowSymLinks
+#RewriteRule ^img/(.*)$ - [NC,L] # Bilder anzeigen lassen
+#RewriteRule ^php/(.*)$ - [NC,L] # php anzeigen lassen
+#RewriteRule ^js/(.*)$ - [NC,L] # js anzeigen lassen
+#RewriteRule ^css/(.*)$ - [NC,L] # CSS anzeigen lassen
+#RewriteRule ^index.php - [NC,L] # löst server error 500 unterbricht weiterleitung
+#RewriteRule ^(.*)$ /docs/index.php?file=$1 [L] 

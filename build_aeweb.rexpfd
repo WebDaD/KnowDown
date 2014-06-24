@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<rexpfd>
+    <destination path="SIW7DEV.fh-hfv-aeweb01.hf.brnet.int:/var/www/docs"/>
+    <options createDirectoryStructure="false" createSelectedOnly="true" descriptionFilePath="/documentation/build_aeweb.rexpfd" overWriteExistingFiles="true" reviewSynchronize="false" saveSettings="true"/>
+    <selectedElements>
+        <file path="/documentation/readme.md"/>
+        <file path="/documentation/index.php"/>
+        <file path="/documentation/config.php"/>
+        <file path="/documentation/.htaccess"/>
+        <folder path="/documentation/css"/>
+         <folder path="/documentation/js"/>
+        <folder path="/documentation/files"/>
+        <folder path="/documentation/img"/>
+        <folder path="/documentation/php"/>
+    </selectedElements>
+</rexpfd>
