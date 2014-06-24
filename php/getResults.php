@@ -2,7 +2,7 @@
 <input type="hidden" value="http://<?php echo $_SERVER['HTTP_HOST'];?>/<?php echo $base_path;?>/index.php?query=<?php echo $_GET["query"];?>" id="search_link"/>
 <?php
 $path_to_check = '../files/';
-$needle = $_GET["query"]; //TODO: Escape this
+$needle = escapeshellcmd($_GET["query"]);
 $cmd = ' find '.$path_to_check.' -iname "*.md" -type f -exec grep -srin "'.$needle.'" {} +';
 
 

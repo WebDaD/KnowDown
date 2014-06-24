@@ -1,6 +1,7 @@
 /**
  * 
  */
+Dropzone.autoDiscover = false;
 $( document ).ready(function() {
 	$("#results").hide();
 	if($.getUrlVar('file') !== undefined){
@@ -94,6 +95,34 @@ $( document ).ready(function() {
 		    document.title = "MarkDownManagr";
 		    window.history.pushState({"html":data,"pageTitle":"MarkDownManagr"},"", $("#txt_link").val());
 		    checkToggleResults();
+		    getFolders();
+		    $("form#dz_new_file").dropzone({ 
+		    	url: "php/uploadFile.php", 
+		    	acceptedFiles:".md",
+		    	init: function(){
+		    		this.on("sending", function(file,xhr,fd){
+		    			fd.append("target_folder",$("#dd_folders").val());
+		    		});
+		    		this.on("success", function(event, response){
+		    			if(response == "0"){
+		    				getFiles();
+		    			} else {
+		    				alert("Error on Upload!");
+		    			}
+		    			
+		    		});
+		    		this.on("error", function(event, errMessage){
+		    			alert(errMessage);
+		    		});
+		    	}
+		    });
+		  });
+	}
+	
+	function getFolders(){
+		$.get( "php/getFolders.php")
+		  .done(function( data ) {
+		    $("#dd_folders").html(data);
 		  });
 	}
 	
@@ -116,7 +145,6 @@ $( document ).ready(function() {
 		    $("#link").clipboard({
 		        path: 'js/jquery.clipboard.swf',
 		        copy: function() {
-		        	//TODO: show something here
 		        	$("#txt_link").focus();
 		        	$("#txt_link").select();
 		        	$("#lbl_ok").fadeIn("slow");

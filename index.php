@@ -6,8 +6,10 @@
 		<script src="js/jquery.min.js" type="text/javascript"></script>
 		<script src="js/jquery.urlvars.min.js" type="text/javascript"></script>
 		<script src="js/jquery.clipboard.js" type="text/javascript"></script>
+		<script src="js/dropzone.js" type="text/javascript"></script>
 		<script src="js/main.js" type="text/javascript"></script>
 		<link rel="stylesheet" href="css/style.css" type="text/css" />
+		<link rel="stylesheet" href="css/dropzone.css" type="text/css" />
 		<meta charset="UTF-8" />
 	</head>
 	<body>
