@@ -1,5 +1,6 @@
 #info{text-align:center;bottom:5px;height:20px;width:100%;margin:0 auto;color:lightgray;border-top:1px solid lightgray;margin-top:20px;}
 
+#lnk_delete{position:fixed;top:0px;right:70%;margin-top:5px;margin-right:5px;cursor:pointer;}
 #lnk_pdf{position:fixed;top:0px;right:65%;margin-top:5px;margin-right:5px;cursor:pointer;}
 #lnk_edit{position:fixed;top:0px;right:60%;margin-top:5px;margin-right:5px;cursor:pointer;}
 #lnk_raw{position:fixed;top:0px;right:55%;margin-top:5px;margin-right:5px;cursor:pointer;}

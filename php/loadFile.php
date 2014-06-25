@@ -8,6 +8,7 @@ $html = $Parsedown->text($md);
 
 ?>
 <a id="btn_back"><img src="img/left-grey-arrow-md.png"/></a>
+<img id="lnk_delete" title="Delete Document" alt="DELETE" src="img/document--minus.png" data-filename="<?php echo $_GET["file"];?>"/>
 <img id="lnk_pdf" title="Download PDF" alt="PDF" src="img/document-pdf-text.png" data-filename="<?php echo $_GET["file"];?>"/>
 <img id="lnk_edit" title="Edit Document" alt="EDIT" src="img/document--pencil.png" data-filename="<?php echo $_GET["file"];?>"/>
 <img id="lnk_raw" title="get Raw Data" alt="RAW" src="img/document-binary.png" data-filename="<?php echo $_GET["file"];?>"/>

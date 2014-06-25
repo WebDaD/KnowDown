@@ -46,6 +46,10 @@ $( document ).ready(function() {
 	$("#content").on('click','#link',function(evt){
 		evt.preventDefault();
 	});
+	$("#content").on('click','#lnk_delete',function(evt){
+		evt.preventDefault();
+		deleteFile($(this).data("filename"));
+	});
 	$("#content").on('click','#lnk_pdf',function(evt){
 		evt.preventDefault();
 		getPDF($(this).data("filename"));
@@ -201,8 +205,18 @@ $( document ).ready(function() {
 	function getPDF(filename){
 		$.get("php/getPDF.php", {file:filename})
 			.done(function(data){
-				window.open(data);
-				 //TODO: data is a pdf. how can we force the download?			    
+				window.open(data);		    
+		});
+	}
+	
+	function deleteFile(filename){
+		$.post("php/deleteFile.php",{file:filename}, function(data){
+			if(data=="0"){
+				getFiles();
+			} else {
+				alert(data);
+				//TODO display error
+			}
 		});
 	}
 	
