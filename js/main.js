@@ -4,7 +4,14 @@
 Dropzone.autoDiscover = false;
 $( document ).ready(function() {
 	$("#results").hide();
-	if($.getUrlVar('file') !== undefined){
+	if($.getUrlVar('action') !== undefined){
+		if($.getUrlVar('action') == "new"){
+			getNewFile();
+		} else if($.getUrlVar('action') == "edit"){
+			editFile($.getUrlVar('file'));
+		}
+	}
+	else if($.getUrlVar('file') !== undefined){
 		loadFile($.getUrlVar('file'));
 	} else if($.getUrlVar('query') !== undefined){
 		getResultsReload($.getUrlVar('query'));
@@ -36,14 +43,16 @@ $( document ).ready(function() {
 		evt.preventDefault();
 		getFiles();
 	});
-	
 	$("#content").on('click','#link',function(evt){
 		evt.preventDefault();
 	});
-	
 	$("#content").on('click','#lnk_raw',function(evt){
 		evt.preventDefault();
 		getRawFile($(this).data("filename"));
+	});
+	$("#content").on('click','#lnk_edit',function(evt){
+		evt.preventDefault();
+		editFile($(this).data("filename"));
 	});
 	
 	$("#txt_search").focus();
@@ -60,6 +69,56 @@ $( document ).ready(function() {
 			}
 		}
 	});
+	
+	$("#content").on('click','#btn_new_file',function(evt){
+		evt.preventDefault();
+		getNewFile();
+	});
+	$("#content").on('click','#btn_cancel',function(evt){
+		evt.preventDefault();
+		getFiles();
+	});
+	$("#content").on('click','#btn_save',function(evt){
+		evt.preventDefault();
+		saveFile($("#dd_folders").val(),$("#txt_name").val(),$("#txt_content").val(), false);
+	});
+	$("#content").on('click','#btn_save_close',function(evt){
+		evt.preventDefault();
+		saveFile($("#dd_folders").val(),$("#txt_name").val(),$("#txt_content").val(), true);
+	});
+	
+	
+	function saveFile(path,name,content, main){
+		$.post("php/saveFile.php", {path:path,name:name,content:content}, function(data){
+			if(data == "0"){
+				if(main){
+					getFiles();
+				} else {
+					//TODO: Display OK
+				}
+			} else {
+				//TODO DIsplay Error
+			}
+		});
+	}
+	
+	function editFile(filename){
+		$.get( "php/editFile.php",{file:filename})
+		  .done(function( data ) {
+		    $("#content").html(data);
+		    document.title = "MarkDownManagr :: Edit File :: "+filename;
+		    window.history.pushState({"html":data,"pageTitle":"MarkDownManagr :: Edit File :: "+filename},"", $("#txt_link").val());
+		  });
+	}
+	
+	function getNewFile(){
+		$.get( "php/newFile.php")
+		  .done(function( data ) {
+		    $("#content").html(data);
+		    document.title = "MarkDownManagr :: New File";
+		    window.history.pushState({"html":data,"pageTitle":"MarkDownManagr :: New File"},"", $("#txt_link").val());
+		  });
+	}
 	
 	function checkToggleResults(){
 		if($('#search_results li').length >= 1){

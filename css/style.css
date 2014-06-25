@@ -1,6 +1,7 @@
 #info{text-align:center;bottom:5px;height:20px;width:100%;margin:0 auto;color:lightgray;border-top:1px solid lightgray;margin-top:20px;}
 
-#lnk_raw{position:fixed;top:0px;right:50%;margin-top:5px;margin-right:5px;width:10%;}
+#lnk_edit{position:fixed;top:0px;right:60%;margin-top:5px;margin-right:5px;}
+#lnk_raw{position:fixed;top:0px;right:55%;margin-top:5px;margin-right:5px;}
 #link{position:fixed;top:0px;right:0px;margin-top:5px;margin-right:5px;width:50%;}
 #lbl_link{float:left;text-align:right;}
 #txt_link{float:left;width:75%;}

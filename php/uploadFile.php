@@ -1,5 +1,6 @@
 <?php
-$target_folder = $_POST["target_folder"];
+require_once("../config.php");
+$target_folder = $FILE_PATH.$_POST["target_folder"];
 $tempname = $_FILES['file']['tmp_name'];
 $name = $_FILES['file']['name'];
 

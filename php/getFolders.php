@@ -1,3 +1,4 @@
+<?php require_once("../config.php");?>
 <?php function findThings($folder){
 	$files = "";
 	$folders = "";
@@ -5,11 +6,11 @@
 		if($result == "..")continue;
 		if($result == ".")continue;
 		if(strpos($result,".")===false){ //directory
-			$display = str_replace("../files/","",$folder.$result);
+			$display = str_replace($FILE_PATH,"",$folder.$result);
 			$folders .= '<option value="'.$folder.$result.'/">'.$display.'</option>';
 			$folders .= findThings($folder.$result."/");
 		}
 	}
 	return $folders;
 }
-echo "<option value=\"../files/\">Root</option>".findThings("../files/");?>
+echo "<option value=\"\">Root</option>".findThings($FILE_PATH);?>
