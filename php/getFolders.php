@@ -1,5 +1,6 @@
 <?php require_once("../config.php");?>
 <?php function findThings($folder){
+	global $FILE_PATH;
 	$files = "";
 	$folders = "";
 	foreach (scandir($folder) as $result) {

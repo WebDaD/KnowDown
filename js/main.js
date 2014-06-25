@@ -46,6 +46,10 @@ $( document ).ready(function() {
 	$("#content").on('click','#link',function(evt){
 		evt.preventDefault();
 	});
+	$("#content").on('click','#lnk_pdf',function(evt){
+		evt.preventDefault();
+		getPDF($(this).data("filename"));
+	});
 	$("#content").on('click','#lnk_raw',function(evt){
 		evt.preventDefault();
 		getRawFile($(this).data("filename"));
@@ -191,6 +195,14 @@ $( document ).ready(function() {
 				 $("#content").html(data);
 				 document.title = "MarkDownManagr :: Raw :: "+filename;
 				 window.history.pushState({"html":data,"pageTitle":"MarkDownManagr :: Raw :: "+filename},"", $("#txt_link").val());				    
+		});
+	}
+	
+	function getPDF(filename){
+		$.get("php/getPDF.php", {file:filename})
+			.done(function(data){
+				window.open(data);
+				 //TODO: data is a pdf. how can we force the download?			    
 		});
 	}
 	

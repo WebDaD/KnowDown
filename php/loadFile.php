@@ -8,8 +8,9 @@ $html = $Parsedown->text($md);
 
 ?>
 <a id="btn_back"><img src="img/left-grey-arrow-md.png"/></a>
-<img id="lnk_edit" alt="EDIT" src="img/document--pencil.png" data-filename="<?php echo $_GET["file"];?>"/>
-<img id="lnk_raw" alt="RAW" src="img/raw.png" data-filename="<?php echo $_GET["file"];?>"/>
+<img id="lnk_pdf" title="Download PDF" alt="PDF" src="img/document-pdf-text.png" data-filename="<?php echo $_GET["file"];?>"/>
+<img id="lnk_edit" title="Edit Document" alt="EDIT" src="img/document--pencil.png" data-filename="<?php echo $_GET["file"];?>"/>
+<img id="lnk_raw" title="get Raw Data" alt="RAW" src="img/document-binary.png" data-filename="<?php echo $_GET["file"];?>"/>
 <div id="link">
 	<span id="lbl_link">Link:&nbsp;</span>
 	<input type="text" value="http://<?php echo $_SERVER['HTTP_HOST'];?>/<?php echo $base_path;?>/index.php?file=<?php echo $_GET["file"];?>" id="txt_link"/>

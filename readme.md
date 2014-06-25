@@ -19,6 +19,7 @@ This Project does heavily use:
 - jQuery.ClipBoard (https://github.com/valeriansaliou/jquery.clipboard)
 - urlvars (https://github.com/neilsmind/urlvars)
 - DropZone.js (http://www.dropzonejs.com/)
+- mpdf (http://mpdf1.com)
 
 ## Authors
 - Dominik Sigmund @ WebDaD.eu
