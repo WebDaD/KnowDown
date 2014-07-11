@@ -13,7 +13,9 @@
 		<meta charset="UTF-8" />
 	</head>
 	<body>
-		<h1><?php echo $NAME;?> v<?php echo $VERSION;?></h1>
+		<img src="img/logo-48x48.png" alt="Logo" title="<?php echo $NAME;?>" style="float:left;margin-right:10px;"/>
+		<h1 style="margin:0;line-height:48px;vertical-align:middle;"><?php echo $NAME;?> v<?php echo $VERSION;?></h1>
+		<div style="clear:both;"></div>
 		<div id="content"></div>
 		<div id="info"><?php echo $NAME;?> v<?php echo $VERSION;?> by <?php echo $AUTHOR;?> --- <a href="http://www.webdad.eu" target="_blank">WebDaD.eu</a></div>
 	</body>
